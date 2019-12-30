@@ -1,0 +1,5 @@
+system-manager (0.0.1) xenial; urgency=low
+
+  * GUI Init.
+
+ -- lixiang <kobe24_lixiang@126.com>  Thu, 05 Dec 2019 18:53:42 +0800

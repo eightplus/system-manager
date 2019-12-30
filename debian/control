@@ -1,0 +1,22 @@
+Source: system-manager
+Section: utils
+Priority: optional
+Maintainer: lixiang <kobe24_lixiang@126.com>
+Uploaders: lixiang <kobe24_lixiang@126.com>
+Build-Depends: debhelper (>= 9),
+               qtbase5-dev (>= 5.1),
+               qt5-qmake,
+               qt5-default,
+               qtscript5-dev,
+               qttools5-dev-tools,
+               libqt5x11extras5-dev,
+               libgeoip-dev,
+               pkg-config,
+Standards-Version: 3.9.8
+Homepage: https://github.com/eightplus/system-manager
+
+Package: system-manager
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Description: Qt5 frontend for linux manager.

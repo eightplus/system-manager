@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/close_button.png</file>
+        <file>res/max_button.png</file>
+        <file>res/menu_button.png</file>
+        <file>res/min_button.png</file>
+        <file>res/unmax_button.png</file>
+        <file>res/about.png</file>
+        <file>res/property.png</file>
+        <file>res/tool.png</file>
+        <file>res/hardware/audio.png</file>
+        <file>res/hardware/battery.png</file>
+        <file>res/hardware/board.png</file>
+        <file>res/hardware/cdrom.png</file>
+        <file>res/hardware/computer.png</file>
+        <file>res/hardware/cpu.png</file>
+        <file>res/hardware/desktop.png</file>
+        <file>res/hardware/driver.png</file>
+        <file>res/hardware/harddisk.png</file>
+        <file>res/hardware/memory.png</file>
+        <file>res/hardware/monitor.png</file>
+        <file>res/hardware/network.png</file>
+        <file>res/hardware/sensor.png</file>
+        <file>res/refresh.png</file>
+        <file>res/warn.png</file>
+        <file>res/ip.png</file>
+        <file>res/system-manager.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>style.qss</file>
+    </qresource>
+</RCC>

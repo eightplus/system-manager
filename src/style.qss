@@ -1,0 +1,160 @@
+QLabel#AudioHeaderIconLabel {
+    background-image: url(:/res/hardware/audio.png);
+}
+
+QLabel#BatteryHeaderIconLabel {
+    background-image: url(:/res/hardware/battery.png);
+}
+
+QLabel#BoardHeaderIconLabel {
+    background-image: url(:/res/hardware/board.png);
+}
+
+QLabel#CdromHeaderIconLabel {
+    background-image: url(:/res/hardware/cdrom.png);
+}
+
+QLabel#ComputerHeaderIconLabel {
+    background-image: url(:/res/hardware/computer.png);
+}
+
+QLabel#CpuHeaderIconLabel {
+    background-image: url(:/res/hardware/cpu.png);
+}
+
+QLabel#DesktopHeaderIconLabel {
+    background-image: url(:/res/hardware/desktop.png);
+}
+
+QLabel#DriverHeaderIconLabel {
+    background-image: url(:/res/hardware/driver.png);
+}
+
+QLabel#HarddiskHeaderIconLabel {
+    background-image: url(:/res/hardware/harddisk.png);
+}
+
+QLabel#MemoryHeaderIconLabel {
+    background-image: url(:/res/hardware/memory.png);
+}
+
+QLabel#MonitorHeaderIconLabel {
+    background-image: url(:/res/hardware/monitor.png);
+}
+
+QLabel#NetworkHeaderIconLabel {
+    background-image: url(:/res/hardware/network.png);
+}
+
+QLabel#SensorHeaderIconLabel {
+    background-image: url(:/res/hardware/sensor.png);
+}
+
+QLabel#BaseHeaderTitle {
+    background-color: transparent;
+    color: black;
+    margin: 0 0 0 5px;
+    font-size: 15px;
+    font-weight: medium;
+}
+
+QScrollArea#AboutScrollArea {
+    background: transparent;
+    border-left: none;
+    border-top : none;
+    border-right : 1px solid rgba(0, 0, 0, .1);
+    border-bottom: none;
+}
+
+QWidget#LeftContentWidget {
+    border: solid lightgray;
+    border-right-width: 1px;/*1px宽的右边框，颜色为lightgray*/
+}
+
+QWidget#LeftContentWidget QPushButton {
+    margin: 0;
+    text-align: left;
+    padding: 0px 15px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+QWidget#LeftContentWidget QPushButton:checked {
+    color: #b2b2b2;
+    font-weight: 300;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: none;
+}
+QWidget#LeftContentWidget QPushButton:hover {
+    border: 1px solid #4f94cd;
+    color: #000000;
+}
+
+QWidget#LeftContentWidget QPushButton:focus {
+    color: #b2b2b2;
+    font-weight: 300;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: none;
+}
+
+LogoWidget {
+    qproperty-logo: url(:/res/system-manager.png);
+}
+
+#LogoWidget QLabel {
+    color: #ffffff;
+}
+
+QScrollBar:vertical{
+    margin:0px 0px 0px 0px;
+    background-color:rgb(255,255,255,100);
+    border:0px;width:10px;
+}
+
+QScrollBar::sub-line:vertical{
+    subcontrol-origin:margin;
+    border:1px solid #dcdcdc;
+    height:13px
+}
+
+QScrollBar::up-arrow:vertical{
+    subcontrol-origin:margin;
+    background-color: #607b8b;
+    height:13px
+}
+
+QScrollBar::sub-page:vertical{
+    background-color: #eeedf0;
+}
+
+QScrollBar::handle:vertical{
+    background-color:#D1D0D2;
+    width:10px;
+}
+
+QScrollBar::handle:vertical:hover{
+    background-color: #1f6d9b;
+    width:10px;
+}
+
+QScrollBar::handle:vertical:pressed{
+    background-color: #00609a;
+    width:10px;
+}
+
+QScrollBar::add-page:vertical{
+    background-color:#eeedf0;
+}
+
+QScrollBar::down-arrow:vertical{
+    background-color: #607b8b;
+}
+
+QScrollBar::add-line:vertical{
+    subcontrol-origin:margin;
+    border:1px solid #dcdcdc;
+    height:13px
+}
