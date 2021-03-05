@@ -1,4 +1,4 @@
-Source: system-manager
+Source: momo-system-manager
 Section: utils
 Priority: optional
 Maintainer: lixiang <kobe24_lixiang@126.com>
@@ -13,9 +13,9 @@ Build-Depends: debhelper (>= 9),
                libgeoip-dev,
                pkg-config,
 Standards-Version: 3.9.8
-Homepage: https://github.com/eightplus/system-manager
+Homepage: https://github.com/eightplus/momo-system-manager
 
-Package: system-manager
+Package: momo-system-manager
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},

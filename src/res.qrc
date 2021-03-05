@@ -25,6 +25,20 @@
         <file>res/warn.png</file>
         <file>res/ip.png</file>
         <file>res/system-manager.png</file>
+        <file>res/sysbutton/close_hover.png</file>
+        <file>res/sysbutton/close.png</file>
+        <file>res/sysbutton/max_hover.png</file>
+        <file>res/sysbutton/max.png</file>
+        <file>res/sysbutton/min_hover.png</file>
+        <file>res/sysbutton/min.png</file>
+        <file>res/sysbutton/unmax_hover.png</file>
+        <file>res/sysbutton/unmax.png</file>
+        <file>res/back.svg</file>
+        <file>res/sysbutton/menu_hover.png</file>
+        <file>res/sysbutton/menu.png</file>
+        <file>res/info1.png</file>
+        <file>res/info2.png</file>
+        <file>res/info3.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>style.qss</file>

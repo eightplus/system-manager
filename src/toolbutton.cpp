@@ -35,9 +35,10 @@ ToolButton::ToolButton(QFrame *parent)
     palette.setColor(QPalette::Background, QColor("#ffffff"));
     this->setPalette(palette);
 
-    this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    this->setFixedSize(480, 120);
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    this->setFixedHeight(150);
 
+//    m_actionBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_actionBtn->setGeometry(QRect(this->rect()));
 
     //让被label覆盖的btn在任何地方都能响应鼠标事件

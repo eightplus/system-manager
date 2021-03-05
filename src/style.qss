@@ -1,3 +1,38 @@
+QMainWindow{
+    background-color: #FFFFFF;
+}
+
+QWidget#topWidget{
+    background-color: #eff4fa;
+    border-bottom: 1px solid #c2d2e9;
+}
+
+QWidget#bottomWidget{
+    background-color:#eff4fa;
+    border-bottom: 1px solid #c2d2e9;
+}
+
+QWidget#centerWidget{
+    background-color: #EEEEEE;
+}
+
+QWidget#whiteWidget {
+    background: white;
+    border:none;
+}
+
+QWidget#monitorBtnwidget{
+    background-color: #000000;
+}
+
+QWidget#monitorBtnwidget[selected_state="selected"]{
+    background-color: #FFFFFF;
+}
+
+QWidget#monitorBtnwidget[selected_state="un_selected"]{
+    background-color: #EEEEEE;
+}
+
 QLabel#AudioHeaderIconLabel {
     background-image: url(:/res/hardware/audio.png);
 }
@@ -100,6 +135,12 @@ QWidget#LeftContentWidget QPushButton:focus {
     border: none;
 }
 
+QLabel#ErroFrame {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #bcbcbc;
+}
+
 LogoWidget {
     qproperty-logo: url(:/res/system-manager.png);
 }
@@ -108,7 +149,7 @@ LogoWidget {
     color: #ffffff;
 }
 
-QScrollBar:vertical{
+/*QScrollBar:vertical{
     margin:0px 0px 0px 0px;
     background-color:rgb(255,255,255,100);
     border:0px;width:10px;
@@ -157,4 +198,123 @@ QScrollBar::add-line:vertical{
     subcontrol-origin:margin;
     border:1px solid #dcdcdc;
     height:13px
+}*/
+
+QScrollBar:vertical{
+    width:5px;
+    background-color:#FFFFFF;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+QScrollBar::handle:vertical {
+    border-bottom: 1px solid #808080;
+    width:5px;
+    min-height:20px;
+    background: #A9A9A9;
+    border-radius:2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    width:5px;
+    min-height:20px;
+    background: #808080;
+}
+
+QScrollBar::add-line:vertical {
+    height:0px;
+    width:0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    height:0px;
+    width:0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical {
+    width:5px;
+    border-radius:2px;
+    background: #FFFFFF;
+}
+
+QScrollArea{
+    /*background: white;*/
+    border: none;
+    padding: 0px;
+}
+
+QListWidget#mainNavigationListWidget{
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+}
+
+QListWidget#mainNavigationListWidget::item{
+    background-color: #FFFFFF;
+    border-radius: 6px;
+}
+
+QListWidget#mainNavigationListWidget::item:hover{
+    background-color: #3D6BE5;
+}
+
+QPushButton{
+    text-align:center;
+    border: none;
+    outline: none;
+    background-repeat:no-repeat;
+}
+
+QPushButton:hover {
+    border: 1px solid #87c7f9;
+}
+
+QPushButton:flat{
+    border: none;
+}
+QPushButton:focus{
+    outline: none;
+}
+
+QPushButton#btnInfo, QPushButton#btnMonitor, QPushButton#btnClean, QPushButton#btnTools {
+    /*color: #000000;
+    icon-size: 32px, 32px;
+    border: 1px solid #87c7f9;*/
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+QPushButton#btnInfo:hover, QPushButton#btnMonitor:hover, QPushButton#btnClean:hover, QPushButton#btnTools:hover {
+    background-color: #0078d7;
+    border: 1px solid #87c7f9;
+}
+
+QPushButton#btnInfo:pressed, QPushButton#btnMonitor:pressed, QPushButton#btnClean:pressed, QPushButton#btnTools:pressed {
+    background-color: #0066b8;
+}
+
+QPushButton#title_btn_menu, QPushButton#title_btn_minimun, QPushButton#title_btn_maxmun, QPushButton#title_btn_close {
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+QPushButton#title_btn_menu:hover, QPushButton#title_btn_minimun:hover, QPushButton#title_btn_maxmun:hover{
+    background-color:#3D6BE5;
+}
+
+QPushButton#title_btn_menu:pressed, QPushButton#title_btn_minimun:pressed, QPushButton#title_btn_maxmun:pressed{
+    background-color:#3257CA;
+}
+
+QPushButton#title_btn_close:hover{
+    background-color:#F86457;
+}
+
+QPushButton#title_btn_close:pressed {
+    background-color:#E44C50;
 }

@@ -36,7 +36,6 @@ public slots:
 
 signals:
     void sendSystemInfo(const StringMap &info, int type);
-//    void scanFinished(bool isFirst);
 
 private:
     bool m_isFirst;

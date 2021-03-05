@@ -1,4 +1,4 @@
-system-manager (0.0.1) xenial; urgency=low
+momo-system-manager (0.0.1) xenial; urgency=low
 
   * GUI Init.
 

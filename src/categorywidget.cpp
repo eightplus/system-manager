@@ -28,6 +28,7 @@ CategoryWidget::CategoryWidget(const QString &name)
     , m_infoGroup(new InfoGroup)
     , m_vlayout(new QVBoxLayout)
 {
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->setObjectName(name);
     this->setTitle(name);
 

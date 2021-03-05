@@ -24,6 +24,7 @@ SystemButton::SystemButton(QWidget *parent) :
     , m_status(NORMAL)
     , m_mousePressed(false)
 {
+    this->setCursor(Qt::PointingHandCursor);
     this->setMouseTracking(false);
 }
 
@@ -35,10 +36,31 @@ void SystemButton::loadPixmap(const QString &iconPath)
     this->setFixedSize(m_width, m_height);
 }
 
-void SystemButton::enterEvent(QEvent *)
+void SystemButton::loadPixmap(QString normal_icon, QString hover_icon, QString click_icon)
 {
-    m_status = ENTER;
-    this->update();
+//    m_pixmap = QPixmap(iconPath);
+//    m_width = m_pixmap.width()/3;
+//    m_height = m_pixmap.height();
+//    this->setFixedSize(m_width, m_height);
+
+    m_pixmap = QPixmap(normal_icon);
+    m_width = m_pixmap.width();
+    m_height = m_pixmap.height();
+    this->setFixedSize(m_width, m_height);
+    m_normal_icon = normal_icon;
+    m_hover_icon = hover_icon;
+    m_click_icon = click_icon;
+
+    setIcon(QIcon(m_normal_icon));
+}
+
+void SystemButton::enterEvent(QEvent *event)
+{
+//    m_status = ENTER;
+//    this->update();
+
+    setIcon(QIcon(m_hover_icon));
+    QPushButton::enterEvent(event);
 }
 
 void SystemButton::mousePressEvent(QMouseEvent *event)
@@ -47,8 +69,8 @@ void SystemButton::mousePressEvent(QMouseEvent *event)
 
     if (event->button() == Qt::LeftButton) {
         m_mousePressed = true;
-        m_status = PRESS;
-        this->update();
+//        m_status = PRESS;
+//        this->update();
     }
 }
 
@@ -58,25 +80,28 @@ void SystemButton::mouseReleaseEvent(QMouseEvent *event)
 
     if (m_mousePressed && this->rect().contains(event->pos())) {
         m_mousePressed = false;
-        m_status = ENTER;
-        this->update();
+//        m_status = ENTER;
+//        this->update();
+        setIcon(QIcon(m_click_icon));
         emit clicked();
     }
 }
 
 void SystemButton::leaveEvent(QEvent *event)
 {
-    Q_UNUSED(event);
-    m_status = NORMAL;
-    this->update();
+//    Q_UNUSED(event);
+//    m_status = NORMAL;
+//    this->update();
+    setIcon(QIcon(m_normal_icon));
+    QPushButton::enterEvent(event);
 }
 
-void SystemButton::paintEvent(QPaintEvent *event)
-{
-    QPushButton::paintEvent(event);
+//void SystemButton::paintEvent(QPaintEvent *event)
+//{
+//    QPushButton::paintEvent(event);
 
-    QPainter painter;
-    painter.begin(this);
-    painter.drawPixmap(this->rect(), m_pixmap.copy(m_width * m_status, 0, m_width, m_height));
-    painter.end();
-}
+//    QPainter painter;
+//    painter.begin(this);
+//    painter.drawPixmap(this->rect(), m_pixmap.copy(m_width * m_status, 0, m_width, m_height));
+//    painter.end();
+//}

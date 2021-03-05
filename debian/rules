@@ -8,7 +8,7 @@ MAKE_OPTS  = PREFIX=/usr QMAKE=qmake LRELEASE=lrelease QMAKE_OPTS="$(QMAKE_OPTS)
 override_dh_auto_configure:
 	QT_SELECT=qt5 dh_auto_configure \
                 -- "QMAKE_CXXFLAGS=$(CFLAGS)" \
-                system-manager.pro
+                momo-system-manager.pro
 
 %:
 	dh $@ --parallel
@@ -17,11 +17,11 @@ override_dh_install:
 	dh_install --fail-missing
 
 override_dh_auto_clean:
-	[ ! -d .moc ] || $(RM) -r .moc
-	[ ! -d .obj ] || $(RM) -r .obj
-	[ ! -d .ui ] || $(RM) -r .ui
-	[ ! -d .rcc ] || $(RM) -r .rcc
-	[ ! -f Makefile ] || dh_auto_clean
+	[ ! -d src/.moc ] || $(RM) -r src/.moc
+	[ ! -d src/.obj ] || $(RM) -r src/.obj
+	[ ! -d src/.ui ] || $(RM) -r src/.ui
+	[ ! -d src/.rcc ] || $(RM) -r src/.rcc
+	[ ! -f src/Makefile ] || dh_auto_clean
 
 override_dh_auto_build:
 	dh_auto_build -- $(MAKE_OPTS)

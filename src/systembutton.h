@@ -32,13 +32,13 @@ public:
 
     explicit SystemButton(QWidget *parent = nullptr);
     void loadPixmap(const QString &iconPath);
+    void loadPixmap(QString normal_icon, QString hover_icon, QString click_icon);
 
 protected:
     void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
     void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
     QPixmap m_pixmap;
@@ -46,6 +46,9 @@ private:
     bool m_mousePressed;
     int m_width;
     int m_height;
+    QString m_normal_icon;
+    QString m_hover_icon;
+    QString m_click_icon;
 };
 
 #endif // SYSTEMBUTTON_H

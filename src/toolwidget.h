@@ -21,6 +21,7 @@
 #define TOOLWIDGET_H
 
 #include <QFrame>
+#include "../basescrollwidget.h"
 
 QT_BEGIN_NAMESPACE
 class InfoGroup;
@@ -30,12 +31,18 @@ class QScrollArea;
 class QSignalMapper;
 QT_END_NAMESPACE
 
-class ToolWidget : public QWidget
+
+
+class ToolWidget : public BaseScrollWidget
 {
     Q_OBJECT
+
 public:
-    explicit ToolWidget(QWidget *parent = nullptr);
+    explicit ToolWidget(QWidget *parent = 0);
     ~ToolWidget();
+
+    QString title() Q_DECL_OVERRIDE;
+    void setTitle(const QString &title) Q_DECL_OVERRIDE;
 
     void initTools();
 
@@ -43,18 +50,14 @@ public slots:
     void onButtonClicked();
     void onMapperSelected(const QString &index);
 
-protected:
-    bool event(QEvent *event) Q_DECL_OVERRIDE;
-    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
-    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
-
 private:
     InfoGroup *m_toolGroup;
     QFrame *m_displayWidget;
+    QVBoxLayout *m_mainLayout = nullptr;
     QVBoxLayout *m_displayLayout = nullptr;
     QScrollArea *m_scrollArea = nullptr;
     QList<ToolButton *> m_toolItems;
-//    QSignalMapper *m_signalMapper;
+
 };
 
 #endif // TOOLWIDGET_H

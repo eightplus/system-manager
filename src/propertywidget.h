@@ -24,6 +24,7 @@
 #include <QMap>
 
 #include "utils.h"
+#include "../basescrollwidget.h"
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -36,15 +37,17 @@ class ThreadModule;
 class QThread;
 QT_END_NAMESPACE
 
-class PropertyWidget : public QWidget
+class PropertyWidget : public BaseScrollWidget
 {
     Q_OBJECT
+
 public:
-    explicit PropertyWidget(QWidget *parent = nullptr);
+    explicit PropertyWidget(QWidget *parent = 0);
     ~PropertyWidget();
 
-    void initWhellAnimation();
-    void stopScroll();
+    QString title() Q_DECL_OVERRIDE;
+    void setTitle(const QString &title) Q_DECL_OVERRIDE;
+
     void doWork();
 
 public slots:
@@ -52,29 +55,10 @@ public slots:
 
 signals:
     void requesetScanSystemInfo();
-//    void scanFinished(bool isFirst);
-
-protected:
-    void wheelEvent(QWheelEvent *event);
-    void mousePressEvent(QMouseEvent *event);
 
 private:
-    bool eventFilter(QObject *watched, QEvent *event);
-
-private:
-    QFrame *m_displayWidget;
-    QVBoxLayout *m_displayLayout;
-
     QPushButton *m_refreshBtn;
-    QLabel *m_title;
-    QScrollArea *m_displayScrollArea;
-
-    QPropertyAnimation *m_wheelAnimation;
-    double m_speedTime;
-    int m_speed;
-
     QMap<QString, BaseWidget *> m_categoryWidgets;
-    bool m_touch;
     int m_pageCounts;
 
     ThreadModule *m_threadModule;

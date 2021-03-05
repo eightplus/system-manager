@@ -19,17 +19,81 @@
 
 #include <QApplication>
 #include <QFile>
+#include <QTextCodec>
 #include <QtDBus/QtDBus>
+#include <QDebug>
+#include <X11/Xlib.h>
 
-#include "maindialog.h"
+#include <signal.h>
+#include <unistd.h>
+
+#include "mainwindow.h"
+
+int getScreenWidth()
+{
+    Display *disp = XOpenDisplay(NULL);
+    Screen *scrn = DefaultScreenOfDisplay(disp);
+    if (NULL == scrn) {
+        return 0;
+    }
+    int width = scrn->width;
+
+    if (NULL != disp) {
+        XCloseDisplay(disp);
+    }
+
+    return width;
+}
+
+inline bool checkRootUser()
+{
+    if (geteuid()) {
+        return true;
+    }
+
+    qWarning() << "Don't run as root";
+
+    return false;
+}
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    if (getScreenWidth() > 2560) {
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+        QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
+    }
 
+    signal(SIGINT, [](int) { QApplication::quit(); });// 设置退出信号
+
+    qDebug() << "username:" << qgetenv("USER");
+
+    QApplication app(argc, argv);
     app.setOrganizationName("eightplus");
     app.setApplicationName("system-manager");
-    app.setApplicationVersion("0.0.1");
+    app.setApplicationVersion("1.0");
+    app.setQuitOnLastWindowClosed(false);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps);
+
+#if (QT_VERSION <= QT_VERSION_CHECK(5,0,0))
+    QTextCodec *codec = QTextCodec::codecForName("utf-8");
+    QTextCodec::setCodecForLocale(codec);
+    QTextCodec::setCodecForCStrings(codec);
+    QTextCodec::setCodecForTr(codec);
+#else
+    QTextCodec *codec = QTextCodec::codecForName("utf-8");
+    QTextCodec::setCodecForLocale(codec);
+#endif
+
+#if QT_VERSION >= 0x040400
+    // Enable icons in menus
+    QCoreApplication::setAttribute(Qt::AA_DontShowIconsInMenus, false);
+#endif
+
+    if (!checkRootUser()) {
+        return -1;
+    }
 
     QFile qss(":/qss/style.qss");
     if (!qss.open(QIODevice::ReadOnly)) {
@@ -40,8 +104,8 @@ int main(int argc, char *argv[])
         qss.close();
     }
 
-    MainDialog dialog;
-    dialog.show();
+    MainWindow mw;
+    mw.show();
 
     return app.exec();
 }
